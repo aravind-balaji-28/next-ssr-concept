@@ -1,3 +1,5 @@
+import ButtonClient from "@/app/components/ButtonClient";
+
 type User = {
   id: number;
   name: string;
@@ -27,6 +29,7 @@ export default async function Page() {
             </div>
           );
         })}
+        <ButtonClient/>
     </>
   );
 }
