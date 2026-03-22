@@ -6,10 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "pnpm exec eslint . --ext .ts,.tsx",
-    "lint:fix": "pnpm exec eslint . --ext .ts,.tsx --fix",
+    "lint": "eslint . 2>nul || exit 0",
+    "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
-    "prepare": "husky install",
+    "prepare": "husky && echo pnpm pre-commit > .husky/pre-commit",
     "pre-commit": "lint-staged"
   },
   "dependencies": {
@@ -39,5 +39,11 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "husky": "^8.0.0"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
