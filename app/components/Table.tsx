@@ -1,4 +1,4 @@
-import React, { JSX, useMemo, useState } from 'react';
+import React, { type JSX, useMemo, useState } from 'react';
 
 import { TableBody } from './TableBody';
 import { TableHeader } from './TableHeader';
@@ -36,10 +36,12 @@ const compareValues = (
     if (isNil(bValue)) {
         return -1;
     }
-    if (isComparable(aValue) && isComparable(bValue)) {
-        if (aValue > bValue) {
-            return order === 'asc' ? 1 : -1;
-        }
+    if (
+        isComparable(aValue) &&
+        isComparable(bValue) &&
+        aValue > bValue
+    ) {
+        return order === 'asc' ? 1 : -1;
     }
 
     return order === 'asc' ? -1 : 1;

@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . 2>nul || exit 0",
+    "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
     "prepare": "husky && echo pnpm pre-commit > .husky/pre-commit",
@@ -27,18 +27,19 @@
     "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
-    "eslint": "^9",
+    "eslint": "^8.57.1",
     "eslint-config-next": "16.0.10",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsdoc": "^62.8.0",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-security": "^4.0.0",
     "eslint-plugin-sonarjs": "^4.0.2",
+    "husky": "^8.0.0",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "husky": "^8.0.0"
+    "typescript": "^5"
   },
   "lint-staged": {
     "**/*.{js,ts,tsx}": [

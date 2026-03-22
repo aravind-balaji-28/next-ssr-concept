@@ -1,17 +1,18 @@
 "use client";
-import React,{JSX} from 'react';
+import React from 'react';
+
 import './table.css';
 import { Table } from '@/app/components/Table';
-import { IColumn } from '@/app/components/types';
+import type { IColumn } from '@/app/components/types';
 
-interface User {
+interface IUser {
   id: number;
   name: string;
   age: number;
   role: string;
 }
 
-const columns: IColumn<User>[] = [
+const columns: Array<IColumn<IUser>> = [
   {
     key: 'name',
     title: 'Name',
@@ -30,13 +31,13 @@ const columns: IColumn<User>[] = [
   },
 ];
 
-const data: User[] = [
+const data: IUser[] = [
   { id: 1, name: 'Aravind', age: 25, role: 'Frontend' },
   { id: 2, name: 'Kumar', age: 30, role: 'Backend' },
   { id: 3, name: 'Raj', age: 28, role: 'Fullstack' },
 ];
 
-export default function App(): JSX.Element {
+export default function App(): React.JSX.Element {
   return (
     <div style={{ padding: 20 }}>
       <Table columns={columns} data={data} rowKey="id" />

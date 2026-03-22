@@ -1,4 +1,4 @@
-import React, { JSX } from 'react';
+import React from 'react';
 
 import type { IColumn } from './types';
 
@@ -23,7 +23,7 @@ const renderCell = <T extends object>(
 
 export function TableBody<T extends object>(
   props: ITableBodyProps<T>,
-): JSX.Element {
+): React.JSX.Element {
   const { columns, data, rowKey } = props;
 
   return (

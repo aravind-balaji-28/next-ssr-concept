@@ -1,4 +1,4 @@
-import React, { JSX } from 'react';
+import React from 'react';
 
 import type { IColumn } from './types';
 
@@ -35,7 +35,7 @@ const renderSortIcon = <T extends object>(
   activeKey: keyof T | null,
   currentKey: keyof T,
   order: SortOrder,
-): JSX.Element | null => {
+): React.JSX.Element | null => {
   if (!isSortable(sortable)) {
     return null;
   }
@@ -53,7 +53,7 @@ const renderSortIcon = <T extends object>(
 
 export function TableHeader<T extends object>(
   props: ITableHeaderProps<T>,
-): JSX.Element {
+):React.JSX.Element {
   const { columns, sortKey, sortOrder, onSort } = props;
 
   return (
