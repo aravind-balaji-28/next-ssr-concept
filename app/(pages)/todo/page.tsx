@@ -8,7 +8,6 @@ const Page = () => {
 
   const [editTitle, setEditTitle] = useState("")
   const [editDescription, setEditDescription] = useState("")
-  console.log("editDescription: ", editDescription);
   const [editId, setEditId] = useState("")
 
   useEffect(() => {
@@ -38,7 +37,6 @@ const Page = () => {
         isComplete: false
       })
     }).then((res) => res.json()).then((result) => {
-      console.log(result)
       return setData((prev): any => {
         return [...prev, { ...result }]
       })
@@ -58,7 +56,6 @@ const Page = () => {
         "Content-Type": "application/json"
       },
     }).then((res) => res.json()).then((result) => {
-      console.log("result: delete", result);
       if (result.success) {
         setData((prev): any => {
           return prev.filter((item: any) => item._id !== id)
@@ -78,7 +75,6 @@ const Page = () => {
       })
     }).then((res) => res.json())
       .then((result) => {
-        console.log("result: ", result.data);
         setData((prev: any) =>
           prev.map((item: any) =>
             item._id === id
@@ -95,7 +91,6 @@ const Page = () => {
         console.log("err: ", err);
       })
   }
-  console.log('data', data)
   return <>
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "500px", margin: "0 auto" }}>
       <h5>Todo Task</h5>
@@ -111,7 +106,6 @@ const Page = () => {
 
     <ul>
       {data?.length > 0 && data.map((item: any, i) => {
-        console.log(item._id, 'tem._id')
         return <>
           <li key={item._id}>
             {editId === item._id ? <>
